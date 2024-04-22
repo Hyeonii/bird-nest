@@ -1,11 +1,16 @@
 import {ReactNode} from "react"
-import Menu from "@/app/(beforeLogin)/_components/Menu";
-import RecommendUser from "@/app/(beforeLogin)/_components/RecommendUser";
-import RecommendKeyword from "@/app/(beforeLogin)/_components/RecommendKeyword";
+import Menu from "@/app/(has-menu)/_components/Menu";
+import RecommendUser from "@/app/(has-menu)/_components/RecommendUser";
+import RecommendKeyword from "@/app/(has-menu)/_components/RecommendKeyword";
 import {recommendedUserType} from "@/types/user";
 import {Divider} from "@nextui-org/react";
 
-export default function BeforeLoginLayout({ children }: { children: ReactNode }) {
+type Props = {
+  children: ReactNode
+  modal: ReactNode
+}
+
+export default function BeforeLoginLayout({ children, modal }: Props) {
   const userData: recommendedUserType[] = [
     {
       name: "서울특별시 자립지원전담기관",
@@ -26,12 +31,13 @@ export default function BeforeLoginLayout({ children }: { children: ReactNode })
   const keywordList = ['전세지원', '밀키트', '취업연계', '심리상담', '보호연장']
 
   return (
-    <div className="h-lvh flex justify-center space-x-8">
+    <div className="h-lvh flex justify-center space-x-8 relative">
       <Menu />
       <div className="w-wide-content w-min-content border-l-1 border-r-1 border-zinc-200">
         <div className="text-xl font-bold pt-4 pl-4 pb-2">Home</div>
         <Divider />
         {children}
+        {modal}
       </div>
       <div className="flex flex-col gap-4 pt-6 w-min-card">
         <RecommendUser userData={userData} />

@@ -3,7 +3,7 @@ import {ReactNode} from "react"
 export default function AfterLoginLayout({ children }: { children: ReactNode }) {
   return (
     <div>
-      로그인 후 layout
+      메뉴 없음
       {children}
     </div>
   )

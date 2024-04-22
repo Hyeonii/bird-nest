@@ -11,9 +11,9 @@ export default function RecommendKeyword({ keywordList }: Props) {
       </div>
       <CardBody>
         <ul>
-          {keywordList.map((keyword: string) => {
+          {keywordList.map((keyword: string, idx) => {
             return (
-              <li className="flex pb-2 pl-1 text-sm">
+              <li key={keyword + idx} className="flex pb-2 pl-1 text-sm">
                 <span className="mr-1 text-gray-500">#</span>
                 <span>{keyword}</span>
               </li>

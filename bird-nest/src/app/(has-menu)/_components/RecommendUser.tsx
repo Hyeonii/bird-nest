@@ -13,9 +13,9 @@ export default function RecommendUser({ userData }: Props) {
       </div>
       <CardBody>
         <ul>
-          {userData.map((user) => {
+          {userData.map((user, idx) => {
             return (
-              <li className="flex justify-between pb-4">
+              <li key={user.name + idx} className="flex justify-between pb-4">
                 <User
                   name={user.name}
                   description={'팔로워: ' + user.follower}

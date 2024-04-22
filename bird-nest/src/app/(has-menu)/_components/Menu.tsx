@@ -23,7 +23,7 @@ export default function Menu() {
       <ul>
         {menus.map((menu, idx) => {
           return (
-            <li className="p-2 font-bold">
+            <li key={menu.title + idx} className="p-2 font-bold">
               <Link href={menu.url}>{menu.title}</Link>
             </li>
           )

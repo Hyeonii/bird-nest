@@ -22,7 +22,7 @@ export default function NewPost() {
 
   useEffect(() => {
     onOpen()
-  }, [])
+  }, [onOpen])
 
   return (
     <Modal

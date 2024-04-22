@@ -8,9 +8,10 @@ export default function Main() {
     <div className="flex flex-col">
       {Array(5)
         .fill(0)
-        .map((_) => {
+        .map((_, idx) => {
           return (
             <div
+              key={'posting_' + idx}
               className="border-b-1 border-zinc-200 p-4"
             >
               <User

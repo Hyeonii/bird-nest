@@ -1,37 +1,35 @@
-import Link from "next/link";
-import Logo from "../../../../public/logo.svg";
+import Link from 'next/link'
+import Logo from '../../../../public/logo.svg'
 
 export default function Menu() {
   const menus = [
     {
       title: '홈',
-      url: '/'
+      url: '/',
     },
     {
       title: '검색',
-      url: '/explore'
+      url: '/explore',
     },
     {
       title: '내정보',
-      url: '/mypage'
-    }
+      url: '/mypage',
+    },
   ]
 
   return (
     <div className="w-min-menu">
-      <Logo className="mt-3 mb-2" width={40} height={40} alt="Logo"/>
+      <Logo className="mb-2 mt-3" width={40} height={40} alt="Logo" />
       <ul>
-        {menus.map((menu) => {
+        {menus.map((menu, idx) => {
           return (
             <li className="p-2 font-bold">
               <Link href={menu.url}>{menu.title}</Link>
             </li>
           )
         })}
-        <li className="m-2 w-10 h-10 bg-orange-400 rounded-full text-3xl text-center text-white">
-          <Link href="new-post">
-            +
-          </Link>
+        <li className="m-2 h-10 w-10 rounded-full bg-orange-400 text-center text-3xl text-white">
+          <Link href="new-post">+</Link>
         </li>
       </ul>
     </div>

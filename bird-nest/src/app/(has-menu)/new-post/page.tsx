@@ -1,5 +1,5 @@
-"use client"
-import {useEffect} from "react"
+'use client'
+import { useEffect } from 'react'
 import {
   Modal,
   ModalBody,
@@ -8,13 +8,13 @@ import {
   ModalHeader,
   Textarea,
   Button,
-  useDisclosure
-} from "@nextui-org/react"
+  useDisclosure,
+} from '@nextui-org/react'
 import { useRouter } from 'next/navigation'
 
 export default function NewPost() {
-  const {isOpen, onOpen, onClose} = useDisclosure()
-  const router  = useRouter()
+  const { isOpen, onOpen, onClose } = useDisclosure()
+  const router = useRouter()
 
   const onOpenChange = () => {
     router.push('/')
@@ -25,11 +25,18 @@ export default function NewPost() {
   }, [])
 
   return (
-    <Modal size="xl" backdrop="blur" isOpen={isOpen} onOpenChange={onOpenChange}>
+    <Modal
+      size="xl"
+      backdrop="blur"
+      isOpen={isOpen}
+      onOpenChange={onOpenChange}
+    >
       <ModalContent>
         {(onClose) => (
           <>
-            <ModalHeader className="flex flex-col gap-1">포스팅 작성</ModalHeader>
+            <ModalHeader className="flex flex-col gap-1">
+              포스팅 작성
+            </ModalHeader>
             <ModalBody>
               <Textarea
                 label="Description"

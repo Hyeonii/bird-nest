@@ -1,7 +1,3 @@
 export default function UserMain() {
-  return (
-    <main>
-      사용자 홈
-    </main>
-  )
+  return <main>사용자 홈</main>
 }

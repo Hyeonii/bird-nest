@@ -1,6 +1,10 @@
-import {ReactNode} from "react"
+import { ReactNode } from 'react'
 
-export default function AfterLoginLayout({ children }: { children: ReactNode }) {
+export default function AfterLoginLayout({
+  children,
+}: {
+  children: ReactNode
+}) {
   return (
     <div>
       메뉴 없음

@@ -1,5 +1,5 @@
-import Main from '@/app/(has-menu)/_components/Main'
+import Feed from '@/app/(has-menu)/_components/Feed'
 
 export default function Home() {
-  return <Main />
+  return <Feed />
 }

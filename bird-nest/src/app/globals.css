@@ -15,6 +15,9 @@
   .w-min-card {
     min-width: 300px;
   }
+  .h-main {
+    height: calc(100vh - 53px);
+  }
 }
 
 :root {

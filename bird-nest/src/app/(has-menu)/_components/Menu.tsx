@@ -48,7 +48,7 @@ export default function Menu() {
             </li>
           )
         })}
-        <li className="ml-2 mt-4 w-20 rounded-xl bg-orange-400 text-center font-bold text-white hover:bg-orange-300">
+        <li className="ml-2 mt-4 w-20 rounded-2xl bg-orange-400 py-1 text-center font-bold text-white hover:bg-orange-300">
           <Link href="new-post">+ 글 작성</Link>
         </li>
       </nav>

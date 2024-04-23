@@ -31,11 +31,12 @@ export default function BeforeLoginLayout({ children, modal }: Props) {
   const keywordList = ['전세지원', '밀키트', '취업연계', '심리상담', '보호연장']
 
   return (
-    <div className="relative flex h-lvh justify-center space-x-8">
+    <div className="relative flex justify-center space-x-8">
       <Menu />
-      <div className="w-wide-content w-min-content border-l-1 border-r-1 border-zinc-200">
-        <div className="pb-2 pl-4 pt-4 text-xl font-bold">Home</div>
-        <Divider />
+      <div className="w-wide-content w-min-content h-lvh snap-none border-l-1 border-r-1 border-zinc-200">
+        <div className="border-b-1 border-stone-300 bg-white pb-2 pl-4 pt-4 text-xl font-bold">
+          Home
+        </div>
         {children}
         {modal}
       </div>

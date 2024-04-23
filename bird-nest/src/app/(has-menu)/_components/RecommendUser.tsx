@@ -2,7 +2,7 @@ import { Card, CardBody, Chip, User } from '@nextui-org/react'
 import { recommendedUserType } from '@/types/user'
 
 type Props = {
-  userData: recommendedUserType[]
+  userData: recommendedUserType[] | []
 }
 
 export default function RecommendUser({ userData }: Props) {
@@ -13,13 +13,13 @@ export default function RecommendUser({ userData }: Props) {
       </div>
       <CardBody>
         <ul>
-          {userData.map((user, idx) => {
+          {userData?.map((user, idx) => {
             return (
               <li key={user.name + idx} className="flex justify-between pb-4">
                 <User
                   name={user.name}
                   description={'팔로워: ' + user.follower}
-                  avatarProps={{ src: user.img }}
+                  avatarProps={{ src: user.image }}
                   className="mr-4"
                 />
                 <Chip variant="flat">팔로우</Chip>

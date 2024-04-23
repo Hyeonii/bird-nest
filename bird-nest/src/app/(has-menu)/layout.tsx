@@ -1,9 +1,8 @@
-import { ReactNode } from 'react'
+'use client'
+import { ReactNode, useEffect, useState } from 'react'
 import Menu from '@/app/(has-menu)/_components/Menu'
 import RecommendUser from '@/app/(has-menu)/_components/RecommendUser'
 import RecommendKeyword from '@/app/(has-menu)/_components/RecommendKeyword'
-import { recommendedUserType } from '@/types/user'
-import { Divider } from '@nextui-org/react'
 
 type Props = {
   children: ReactNode
@@ -11,24 +10,30 @@ type Props = {
 }
 
 export default function BeforeLoginLayout({ children, modal }: Props) {
-  const userData: recommendedUserType[] = [
-    {
-      name: '서울특별시 자립지원전담기관',
-      follower: 130,
-      img: 'https://func.seoul.go.kr/upload/mediahub/2023/07/hCRYpjtXskcqtRiPIorJTEbbpgbmPhmA.jpg',
-    },
-    {
-      name: '직방',
-      follower: 14000,
-      img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkPYWYFtWrVdiWHR1PJoJLu7cBCQGc8spF9R58Glktlg&s',
-    },
-    {
-      name: '새둥지',
-      follower: 673,
-      img: 'https://png.pngtree.com/template/20191014/ourlarge/pngtree-bird-nest-logo-vector-line-art-outline-download-monoline-image_318764.jpg',
-    },
-  ]
-  const keywordList = ['전세지원', '밀키트', '취업연계', '심리상담', '보호연장']
+  const [recommendedData, setRecommendedData] = useState({
+    users: [],
+    keywords: [],
+  })
+
+  useEffect(() => {
+    const fetchMainData = async () => {
+      try {
+        const response = await fetch(
+          `${process.env.NEXT_PUBLIC_BASE_URL}/api/recommended`,
+          { method: 'get' },
+        )
+
+        if (response.status === 200) {
+          return await response.json()
+        }
+      } catch (err) {
+        console.error(err)
+        return { message: null }
+      }
+    }
+
+    fetchMainData().then((data) => setRecommendedData(data))
+  }, [])
 
   return (
     <div className="relative flex justify-center space-x-8">
@@ -41,8 +46,8 @@ export default function BeforeLoginLayout({ children, modal }: Props) {
         {modal}
       </div>
       <div className="w-min-card flex flex-col gap-4 pt-6">
-        <RecommendUser userData={userData} />
-        <RecommendKeyword keywordList={keywordList} />
+        <RecommendUser userData={recommendedData?.users || []} />
+        <RecommendKeyword keywordList={recommendedData?.keywords || []} />
       </div>
     </div>
   )
